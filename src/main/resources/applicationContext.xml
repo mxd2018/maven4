@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- 管理对像 -->
+	
+	<!-- <bean id="phone" class="com.qianfeng.maven.pojo.po.Phone">
+		<property name="id" value="1"/>
+		<property name="phoneName" value="苹果X"/>
+	</bean>
+	
+	<bean id="student" class="com.qianfeng.maven.pojo.po.Student">
+		<property name="id" value="123"/>
+		<property name="name" value="小明"/>
+		<property name="phone" ref="phone"/>
+	</bean> -->
+	
+	<!--spring容器通过静态工厂类创建对象  -->
+	<!-- <bean id="studentFactory" class="com.qianfeng.maven.pojo.factory.StudentFactory" factory-method="createStudent2"></bean> -->
+	
+	<!-- 有参构造注入，index属性设定哪个参数先后顺序，0先于1
+		<bean id="phone" class="com.qianfeng.maven.pojo.po.Phone">
+		<constructor-arg name="id" value="999"></constructor-arg>
+		<constructor-arg name="phoneName" value="小米"></constructor-arg>
+	</bean> -->
+	
+	<!-- p命名空间注入 -->
+	<!-- <bean id="phone" class="com.qianfeng.maven.pojo.po.Phone" p:id="666" p:phoneName="vivo"/>
+	<bean id="student" class="com.qianfeng.maven.pojo.po.Student" p:id="222" p:name="小白" p:phone-ref="phone"></bean> -->
+	
+	<!--spel注入，spring Expression Language：spring表达式语言  -->
+	<!-- <bean id="phone" class="com.qianfeng.maven.pojo.po.Phone" p:id="333" p:phoneName="oppo">
+		<property name="id" value="333"></property>
+		<property name="phoneName" value="oppo"></property>
+	</bean>
+	<bean id="student" class="com.qianfeng.maven.pojo.po.Student" p:phone-ref="phone">
+		<property name="id" value="#{phone.id}"/>
+		<property name="name" value="spel注入"/>
+	</bean> -->
+	
+	<!-- 复杂类型的注入 -->
+	<bean id="myCollection" class="com.qianfeng.maven.collection.MyCollection">
+		<property name="arrs">
+			<list>
+				<value>元素1</value>
+				<value>元素2</value>
+				<value>元素3</value>
+			</list>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="1" value="第一个元素"></entry>
+				<entry key="2" value="第二个元素"></entry>
+				<entry key="3" value="第三个元素"></entry>
+			</map>
+		</property>
+	</bean>
+	
+
+</beans>
+
+
